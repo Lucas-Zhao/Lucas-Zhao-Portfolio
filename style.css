@@ -1,0 +1,148 @@
+:root {
+  --fog: #e8edeb;
+  --paper: #f5f7f6;
+  --pine: #1c3a33;
+  --slate: #4a5d58;
+  --glacier: #2a6f93;
+  --line: #c5d0cc;
+
+  --font-head: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--pine);
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.wrap {
+  width: min(1080px, 100% - 3rem);
+  margin-inline: auto;
+}
+
+/* Two-column layout used by the hero and every project */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.text { max-width: 34rem; }
+
+h1, h2 {
+  font-family: var(--font-head);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; }
+
+.tagline {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  color: var(--glacier);
+  margin: 0 0 1.25rem;
+}
+
+p { margin: 0 0 1rem; }
+
+/* Hero: topographic contour lines in the background */
+.hero {
+  padding: clamp(4rem, 12vh, 8rem) 0;
+  background-color: var(--fog);
+  background-image: repeating-radial-gradient(
+    circle at 85% 20%,
+    transparent 0,
+    transparent 22px,
+    var(--line) 22px,
+    var(--line) 23px
+  );
+  border-bottom: 1px solid var(--line);
+}
+
+/* Media (images, video, repo link) */
+.media img,
+.media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  background: var(--fog);
+}
+
+.portrait {
+  aspect-ratio: 6 / 7;
+  object-fit: cover;
+}
+
+.repo {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-family: var(--font-head);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--glacier);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.repo:hover { color: var(--pine); }
+
+.repo:focus-visible,
+video:focus-visible {
+  outline: 3px solid var(--glacier);
+  outline-offset: 3px;
+}
+
+/* Projects */
+.project { padding: clamp(3rem, 8vw, 6rem) 0; }
+.project + .project { border-top: 1px solid var(--line); }
+
+.project .text { color: var(--slate); }
+.project h2 { color: var(--pine); }
+
+/* Swap sides: text left, media right */
+.project.flip .text { order: -1; }
+
+.wip {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--glacier);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--glacier);
+  letter-spacing: 0;
+}
+
+footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--line);
+  background: var(--fog);
+  color: var(--slate);
+  font-size: 0.95rem;
+}
+
+footer p { margin: 0; }
+
+/* Mobile: single column, media first */
+@media (max-width: 760px) {
+  .split { grid-template-columns: 1fr; }
+  .project.flip .text { order: 0; }
+  .hero .media { order: -1; max-width: 320px; }
+  .project .media { order: -1; }
+}

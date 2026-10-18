@@ -3,19 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hello World</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: sans-serif;
-    }
-  </style>
+  <title>Your Name | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Serif+4:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="script.css">
 </head>
 <body>
-  <h1>Hello World</h1>
+
+  <!-- INTRO -->
+  <header class="hero">
+    <div class="wrap split">
+      <div class="text">
+        <h1>Your Name</h1>
+        <p class="tagline">Short one-line description of what you do.</p>
+        <!-- REPLACE: your introduction / about me -->
+        <p>
+          Write your introduction here. Talk about who you are, what you study or
+          work on, and what kinds of projects you enjoy building.
+        </p>
+      </div>
+      <div class="media">
+        <!-- REPLACE: link to your picture -->
+        <img class="portrait" src="https://placehold.co/600x700?text=Your+Photo" alt="Portrait of Your Name">
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- PROJECT 1: video left, text right -->
+    <section class="project">
+      <div class="wrap split">
+        <div class="media">
+          <!-- REPLACE: path or link to your demo video file -->
+          <video controls preload="metadata" poster="https://placehold.co/800x450?text=Video+Poster">
+            <source src="VIDEO_LINK_HERE.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <!-- REPLACE: GitHub repo link -->
+          <a class="repo" href="https://github.com/your-username/terrain-generator">View on GitHub</a>
+        </div>
+        <div class="text">
+          <h2>Infinite Mountain Terrain Generator</h2>
+          <!-- REPLACE: explain more about the project -->
+          <p>
+            Generates mountains using fractal Brownian motion (fBm) and renders them with
+            geometry clipmaps, which swap in different levels of detail (LODs) depending on
+            distance from the camera. Add more detail here about how it works, what you
+            learned, and what you would improve.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 2: text left, image right -->
+    <section class="project flip">
+      <div class="wrap split">
+        <div class="text">
+          <h2>Pokemon Code Software Verification</h2>
+          <!-- REPLACE: description -->
+          <p>
+            Runs software verification techniques on Pokemon code, including translated
+            code, to confirm the reasoning behind unusual bugs in the games. By running
+            enough tests, I can show whether a specific explanation in the code accounts
+            for a bug rather than it being random.
+          </p>
+        </div>
+        <div class="media">
+          <!-- REPLACE: image link -->
+          <img src="https://placehold.co/800x500?text=Project+2" alt="Pokemon code verification project">
+          <!-- REPLACE: GitHub repo link -->
+          <a class="repo" href="https://github.com/your-username/pokemon-verification">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 3: image left, text right -->
+    <section class="project">
+      <div class="wrap split">
+        <div class="media">
+          <!-- REPLACE: image link -->
+          <img src="https://placehold.co/800x500?text=Project+3" alt="Honkai Star Rail revenue analysis">
+          <!-- REPLACE: GitHub repo link -->
+          <a class="repo" href="https://github.com/your-username/hsr-revenue-analysis">View on GitHub</a>
+        </div>
+        <div class="text">
+          <h2>Honkai Star Rail SQL Revenue Analysis</h2>
+          <!-- REPLACE: description -->
+          <p>
+            Uses SQL to build a database of Honkai Star Rail information, then uses Python
+            to analyze key statistics about the revenue each character brings in. Add the
+            main findings and the tools you used here.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 4: text left, image right -->
+    <section class="project flip">
+      <div class="wrap split">
+        <div class="text">
+          <h2>Environmental Blender Art: Cat Statue Cave <span class="wip">Work in progress</span></h2>
+          <!-- REPLACE: description -->
+          <p>
+            A Blender project in environmental design, aiming for a scene that feels
+            mysterious but still looks cool. Describe your lighting, materials, and
+            modeling choices here.
+          </p>
+        </div>
+        <div class="media">
+          <!-- REPLACE: image link -->
+          <img src="https://placehold.co/800x500?text=Project+4" alt="Cat statue cave scene in Blender">
+          <!-- REPLACE: GitHub repo link -->
+          <a class="repo" href="https://github.com/your-username/cat-statue-cave">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT 5: image left, text right -->
+    <section class="project">
+      <div class="wrap split">
+        <div class="media">
+          <!-- REPLACE: image link -->
+          <img src="https://placehold.co/800x500?text=Project+5" alt="Neuschwanstein Castle model in Blender">
+          <!-- REPLACE: GitHub repo link -->
+          <a class="repo" href="https://github.com/your-username/neuschwanstein-castle">View on GitHub</a>
+        </div>
+        <div class="text">
+          <h2>Environmental Blender Art: Modeling Neuschwanstein Castle from Scratch <span class="wip">Work in progress</span></h2>
+          <!-- REPLACE: description -->
+          <p>
+            A Blender project where I build every model myself, recreating Neuschwanstein
+            Castle. Describe your process, references, and what you are working on next.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> Your Name</p>
+      <!-- OPTIONAL: add contact links here -->
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
