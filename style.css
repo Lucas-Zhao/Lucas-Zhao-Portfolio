@@ -24,19 +24,23 @@ body {
 }
 
 .wrap {
-  width: min(1080px, 100% - 3rem);
+  width: min(1100px, 100% - 3rem);
   margin-inline: auto;
 }
 
 /* Two-column layout used by the hero and every project */
 .split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); /* text wide, image narrow */
+  gap: clamp(1.5rem, 4vw, 3.5rem);
   align-items: center;
 }
 
-.text { max-width: 34rem; }
+/* Projects with the image on the left */
+.project .split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+
+/* Projects with the image on the right */
+.project.flip .split { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
 
 h1, h2 {
   font-family: var(--font-head);
@@ -59,7 +63,7 @@ p { margin: 0 0 1rem; }
 
 /* Hero: topographic contour lines in the background */
 .hero {
-  padding: clamp(4rem, 12vh, 8rem) 0;
+  padding: clamp(2.5rem, 8vh, 5rem) 0;
   background-color: var(--fog);
   background-image: repeating-radial-gradient(
     circle at 85% 20%,
@@ -81,9 +85,19 @@ p { margin: 0 0 1rem; }
   background: var(--fog);
 }
 
+/* Intro photo: roughly square */
 .portrait {
-  aspect-ratio: 6 / 7;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  max-height: 380px;
+}
+
+/* Project images and video: wider rectangles */
+.project .media img,
+.project .media video {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  max-height: 300px;
 }
 
 .repo {
@@ -106,7 +120,7 @@ video:focus-visible {
 }
 
 /* Projects */
-.project { padding: clamp(3rem, 8vw, 6rem) 0; }
+.project { padding: clamp(2rem, 5vw, 3.5rem) 0; }
 .project + .project { border-top: 1px solid var(--line); }
 
 .project .text { color: var(--slate); }
@@ -141,7 +155,9 @@ footer p { margin: 0; }
 
 /* Mobile: single column, media first */
 @media (max-width: 760px) {
-  .split { grid-template-columns: 1fr; }
+  .split,
+  .project .split,
+  .project.flip .split { grid-template-columns: 1fr; }
   .project.flip .text { order: 0; }
   .hero .media { order: -1; max-width: 320px; }
   .project .media { order: -1; }
